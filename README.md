@@ -1,11 +1,11 @@
 # Jsoon
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/seuusuario/jsoon/main/src/Jsoon/Media/icon.png" width="128" alt="Jsoon logo" />
+  <img src="https://raw.githubusercontent.com/rkdcoder/jsoon/main/src/Jsoon/Media/icon.png" width="128" alt="Jsoon logo" />
 </p>
 
 [![NuGet](https://img.shields.io/nuget/v/Jsoon.svg)](https://www.nuget.org/packages/Jsoon)
-[![Build & Publish](https://github.com/seuusuario/jsoon/actions/workflows/nuget.yml/badge.svg)](https://github.com/seuusuario/jsoon/actions/workflows/nuget.yml)
+[![Build & Publish](https://github.com/rkdcoder/jsoon/actions/workflows/nuget.yml/badge.svg)](https://github.com/rkdcoder/jsoon/actions/workflows/nuget.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
