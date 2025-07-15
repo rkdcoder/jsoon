@@ -7,7 +7,7 @@ namespace Jsoon
     /// using recommended <see cref="System.Text.Json"/> options: camelCase properties, 
     /// case-insensitive matching, and null value ignore.
     /// </summary>
-    public static class Jsoon
+    public static class Serializer
     {
         private static readonly JsonSerializerOptions _defaultOptions = new()
         {
