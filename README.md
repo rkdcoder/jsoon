@@ -11,7 +11,7 @@
 
 **Jsoon** é um utilitário estático, enxuto e robusto para serialização e desserialização JSON no .NET, baseado em `System.Text.Json` com opções padronizadas e tratamento de erro customizado.
 
-* 🚀 **Fácil de usar**: apenas `Jsoon.Serialize(obj)` e `Jsoon.Deserialize<T>(json)`
+* 🚀 **Fácil de usar**: apenas `Jsoon.Serializer.Serialize(obj)` e `Jsoon.Serializer.Deserialize<T>(json)`
 * 🔒 **Seguro**: todas as exceções são encapsuladas em `Jsoon.JsonSerializerException`
 * 📝 **Opinionated**: utiliza camelCase, propriedades case-insensitive e ignora nulos
 * ♻️ **Reusável**: pronto para qualquer aplicação .NET moderna (.NET 8+)
@@ -42,10 +42,10 @@ using Jsoon;
 var pessoa = new Pessoa { Nome = "Rodrigo", Idade = 30 };
 
 // Serializar para JSON
-string json = Jsoon.Serialize(pessoa);
+string json = Jsoon.Serializer.Serialize(pessoa);
 
 // Desserializar de JSON
-var pessoa2 = Jsoon.Deserialize<Pessoa>(json);
+var pessoa2 = Jsoon.Serializer.Deserialize<Pessoa>(json);
 ```
 
 > **Obs:** Todos os erros de serialização/desserialização lançam `Jsoon.JsonSerializerException`.
@@ -62,10 +62,10 @@ public class Pessoa
 var pessoa = new Pessoa { Nome = "Rodrigo", Idade = 30 };
 
 // Serializando
-string json = Jsoon.Serialize(pessoa); // {"nome":"Rodrigo","idade":30}
+string json = Jsoon.Serializer.Serialize(pessoa); // {"nome":"Rodrigo","idade":30}
 
 // Desserializando
-Pessoa? resultado = Jsoon.Deserialize<Pessoa>(json);
+Pessoa? resultado = Jsoon.Serializer.Deserialize<Pessoa>(json);
 ```
 
 ---
@@ -86,7 +86,7 @@ Todos os métodos públicos lançam **apenas** `Jsoon.JsonSerializerException` e
 ```csharp
 try
 {
-    var obj = Jsoon.Deserialize<MyType>("json inválido");
+    var obj = Jsoon.Serializer.Deserialize<MyType>("json inválido");
 }
 catch (JsonSerializerException ex)
 {
