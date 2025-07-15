@@ -5,6 +5,7 @@
 </p>
 
 [![NuGet](https://img.shields.io/nuget/v/Jsoon.svg)](https://www.nuget.org/packages/Jsoon)
+[![Build & Publish](https://github.com/rkdcoder/jsoon/actions/workflows/main.yml/badge.svg)](https://github.com/rkdcoder/jsoon/actions/workflows/main.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
@@ -111,7 +112,7 @@ dotnet test --configuration Release
 ## CI/CD
 
 * Pipeline GitHub Actions com build, testes e publicação automática no NuGet.org.
-* Veja o workflow completo em [.github/workflows/nuget.yml](.github/workflows/nuget.yml).
+* Veja o workflow completo em [.github/workflows/nuget.yml](.github/workflows/main.yml).
 
 ---
 
