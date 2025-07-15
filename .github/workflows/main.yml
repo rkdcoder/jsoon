@@ -1,0 +1,36 @@
+name: Build, Test and Deploy Jsoon Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-test-pack-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build (Release)
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test --no-build --verbosity normal
+
+      - name: Pack NuGet package
+        run: dotnet pack ./Jsoon/Jsoon.csproj --configuration Release --no-build
+
+      - name: Publish to NuGet.org
+        run: dotnet nuget push "./Jsoon/bin/Release/*.nupkg" -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
