@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up .NET
+      - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "8.0.x"
@@ -22,13 +22,13 @@ jobs:
         run: dotnet restore
 
       - name: Build (Release)
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release
 
       - name: Run tests
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test
 
       - name: Pack NuGet package
-        run: dotnet pack ./Jsoon/Jsoon.csproj --configuration Release --no-build
+        run: dotnet pack --configuration Release
 
       - name: Publish to NuGet.org
         run: dotnet nuget push "./Jsoon/bin/Release/*.nupkg" -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
